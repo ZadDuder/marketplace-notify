@@ -1,5 +1,7 @@
 # Marketplace Notify
 
+[![CI](https://github.com/ZadDuder/marketplace-notify/actions/workflows/ci.yml/badge.svg)](https://github.com/ZadDuder/marketplace-notify/actions/workflows/ci.yml)
+
 Сервис прикладных уведомлений для кабинетов Ozon Seller и М.Видео. Для Ozon в Telegram отправляются только события, требующие реакции менеджера: новые FBS/realFBS-заказы, возвраты на согласовании и к получению, товары к вывозу до утилизации, жалобы со сроком спора, приёмка поставок FBO и акты на согласование. Для М.Видео отслеживаются доступные через API кабинета FBS-заказы, этапы сборки и доставки, приёмка, отмены и повторные поставки.
 
 ## Целевая production-архитектура
