@@ -1,0 +1,35 @@
+services:
+  ozon-notify:
+    build: .
+    container_name: ozon-notify
+    restart: unless-stopped
+    env_file:
+      - .env
+    volumes:
+      - ./data:/app/data
+    networks:
+      - ozon_notify
+
+  caddy:
+    image: caddy:2.8
+    container_name: ozon-notify-caddy
+    restart: unless-stopped
+    depends_on:
+      - ozon-notify
+    env_file:
+      - .env
+    ports:
+      - "443:443"
+    volumes:
+      - ./Caddyfile:/etc/caddy/Caddyfile:ro
+      - caddy_data:/data
+      - caddy_config:/config
+    networks:
+      - ozon_notify
+
+networks:
+  ozon_notify:
+
+volumes:
+  caddy_data:
+  caddy_config:

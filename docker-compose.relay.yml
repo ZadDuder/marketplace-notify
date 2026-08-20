@@ -1,0 +1,13 @@
+services:
+  ozon-notify:
+    network_mode: host
+    networks: !reset []
+    environment:
+      BIND_HOST: 127.0.0.1
+
+  caddy:
+    network_mode: host
+    networks: !reset []
+    ports: !reset []
+    environment:
+      CADDY_UPSTREAM: 127.0.0.1:8080

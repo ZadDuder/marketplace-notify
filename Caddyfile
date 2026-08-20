@@ -1,0 +1,4 @@
+{$CADDY_DOMAIN} {
+	encode gzip
+	reverse_proxy {$CADDY_UPSTREAM:ozon-notify:8080}
+}
