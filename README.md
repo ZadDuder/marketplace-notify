@@ -116,3 +116,13 @@ docker compose -f docker-compose.yml -f docker-compose.relay.yml up -d --build -
 ```
 
 Не помещайте в README, логи, issue или commit реальные Telegram-токены, API-ключи маркетплейсов, пароли и relay/webhook-секреты.
+
+## Проверки качества
+
+```bash
+ruff check src tests
+PYTHONPATH=src python -m unittest discover -s tests
+PYTHONPATH=src python -m compileall -q src
+```
+
+Эти же lint- и unit-проверки выполняются в GitHub Actions на Python 3.12. Версия Ruff и профиль правил зафиксированы, чтобы локальный и CI-запуски давали одинаковый результат.
